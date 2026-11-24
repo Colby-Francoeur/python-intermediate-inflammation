@@ -11,9 +11,17 @@ import numpy as np
 
 
 def load_csv(filename):
-    """Load a Numpy array from a CSV
+    """Load a Numpy array from csv
 
-    :param filename: Filename of CSV to load
+    Parameters
+    ----------
+    filename : str
+        path to the csv file
+
+    Returns
+    -------
+    np.ndarray
+        2D array of inflammation data
     """
     return np.loadtxt(fname=filename, delimiter=',')
 
@@ -39,7 +47,6 @@ def daily_min(data):
     :returns: An array of min values of measurements for each day."""
     return np.min(data, axis=0)
 
-<<<<<<< HEAD
 def patient_normalise(data):
     """
     Normalise patient data between 0 and 1 of a 2D inflammation data array.
@@ -61,7 +68,6 @@ def patient_normalise(data):
         normalised = data / max_data[:, np.newaxis]
     normalised[np.isnan(normalised)] = 0
     return normalised
-=======
 def load_json(filename):
     """Load a numpy array from a JSON document.
     
@@ -89,4 +95,3 @@ def analyse_data(data_source):
     daily_standard_deviation = compute_standard_deviation_by_data(data)
 
     return daily_standard_deviation
->>>>>>> full-data-analysis
